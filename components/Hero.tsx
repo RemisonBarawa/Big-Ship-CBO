@@ -3,9 +3,8 @@
 import { motion, useScroll, useTransform } from 'framer-motion'
 import Link from 'next/link'
 import Image from 'next/image'
-import { ArrowRight, Waves, Sparkles, ChevronDown } from 'lucide-react'
+import { ArrowRight, Waves, Sparkles } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { cn } from '@/lib/utils'
 
 export default function Hero() {
   const { scrollY } = useScroll()
@@ -184,11 +183,12 @@ export default function Hero() {
       {/* Scroll indicator with organic shape */}
       <motion.div
         className="absolute bottom-12 left-1/2 -translate-x-1/2 z-20"
-        animate={{ y: [0, 12, 0] }}
-        transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 0.5 }}
+        animate={{ y: [0, 12, 0], opacity: 1 }}
+        transition={{ 
+          y: { duration: 2, repeat: Infinity, ease: 'easeInOut' },
+          opacity: { delay: 1.5, duration: 0.5 }
+        }}
       >
         <motion.div
           whileHover={{ scale: 1.2 }}
